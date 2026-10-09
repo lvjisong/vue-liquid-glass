@@ -1,0 +1,28 @@
+// ===== 品牌色（示例值，按项目替换成你的品牌色）=====
+$brand: #0071e3; // <-- 按项目替换
+$brand-hover: #0077ed; // <-- 按项目替换
+$link: #2997ff; // <-- 按项目替换
+$text-primary: #1d1d1f; // <-- 按项目替换
+$text-secondary: #6e6e73; // <-- 按项目替换
+$bg-light: #f5f5f7; // <-- 按项目替换
+$bg-page: #f5f5f7; // <-- 按项目替换：页面整体底色（theme.scss 深色模式覆盖）
+$bg-card: #fbfbfd; // <-- 按项目替换
+$border: #d2d2d7; // <-- 按项目替换
+
+// ===== 字体栈 =====
+$font-stack: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC",
+  "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+$font-stack-text: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC",
+  "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+// ===== 尺寸 =====
+$nav-height: 44px;
+$radius-pill: 999px;
+$content-max-width: 1024px; // <-- 按项目替换
+
+// ===== 响应式断点 =====
+// ≤breakpoint-mobile 为移动端，> 为 PC 端。必须和 JS 里 matchMedia 断点保持一致（见下）
+$breakpoint-mobile: 734px; // <-- 按项目替换
+
+// ===== 动画缓动（统一用这个，改一处全局生效）=====
+$ease-apple: cubic-bezier(0.4, 0, 0.6, 1);

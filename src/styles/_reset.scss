@@ -1,0 +1,53 @@
+/* ========== CSS Reset（统一浏览器默认样式差异）========== */
+@use "variables" as *; // 独立模块需自引变量（@use 作用域不跨文件传递）
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-stack-text;
+  color: $text-primary;
+  background-color: $bg-page;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  &:hover {
+    color: $link;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}

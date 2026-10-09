@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: <-- 按项目替换：https://your-domain.com/sitemap.xml -->

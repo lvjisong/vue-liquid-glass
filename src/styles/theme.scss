@@ -1,0 +1,27 @@
+/**
+ * 全局主题变量：跟随系统深浅色自动切换。
+ * 组件里用 var(--xxx)，浏览器按 prefers-color-scheme 自动切换，无需 JS。
+ * 新增颜色：先在 :root 定义浅色值，再在 dark 块覆盖深色值。
+ */
+:root {
+  --bg-page: #f5f5f7; /* 页面/页脚底色 */
+  --bg-card: #fff; /* 卡片底色 */
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-link: #424245;
+  --text-link-hover: #1d1d1f;
+  --border: #d2d2d7;
+  --link: #0071e3; /* 强调色（两色通用，示例值按项目替换） */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #000;
+    --bg-card: #1d1d1f;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --text-link: #a1a1a6;
+    --text-link-hover: #fff;
+    --border: #424245;
+  }
+}

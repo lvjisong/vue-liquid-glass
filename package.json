@@ -5,11 +5,21 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build:staging": "vue-cli-service build --mode staging",
+    "build:report": "vue-cli-service --mode production build --report",
+    "lint": "vue-cli-service lint",
+    "format": "prettier --write \"src/**/*.{vue,js,scss,css}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "axios": "^1.20.0",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "element-plus": "^2.14.7",
+    "spark-md5": "^3.0.2",
+    "vue": "^3.2.13",
+    "vue-router": "^4.6.4",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -17,12 +27,20 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "compression-webpack-plugin": "^12.0.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "prettier": "^2.4.1",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0"
+    "eslint-config-prettier": "^8.10.2",
+    "eslint-plugin-prettier": "^4.2.5",
+    "eslint-plugin-vue": "^8.7.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^17.6.0",
+    "prettier": "^2.8.8",
+    "sass": "^1.105.1",
+    "sass-loader": "^10.5.2",
+    "webpack-bundle-analyzer": "^5.4.0"
+  },
+  "lint-staged": {
+    "src/**/*.{vue,js}": ["prettier --write", "eslint --fix"],
+    "src/**/*.{scss,css}": ["prettier --write"]
   }
 }

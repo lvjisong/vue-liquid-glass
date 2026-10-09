@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,28 @@
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Vue 挂载前显示，挂载后自动替换，不用等 JS 下载完看到白屏 -->
+      <div id="app-loading">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">加载中...</p>
+      </div>
+    </div>
+    <style>
+      /* 内联在 index.html，不用等 CSS 加载 */
+      #app-loading {
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        min-height: 100vh; background: #fff;
+      }
+      .loading-spinner {
+        width: 36px; height: 36px;
+        border: 3px solid #f5f5f7; border-top-color: #0071e3; /* 示例色，按项目品牌色替换 */
+        border-radius: 50%; animation: spin 0.8s linear infinite;
+      }
+      .loading-text { margin-top: 16px; color: #86868b; font-size: 14px; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -1,0 +1,10 @@
+// ===== 全局样式入口 =====
+// 依赖 vue.config.js 的 additionalData 自动注入 variables + mixins，
+// 这里只需引入 reset 和主题变量即可，组件里可直接用 $var / @include。
+@use "./reset.scss";
+
+// 页面底色用主题变量（跟随系统深浅色，见 theme.scss）
+:root {
+  --bg-page: #{$bg-page}; // <-- 如未用 theme.scss 可删这行
+  --text-primary: #{$text-primary};
+}
