@@ -1,3 +1,15 @@
+/**
+ * ============================================================
+ * utils/auth.js —— 登录态统一入口（Cookie 持久化 + Vuex 兜底）
+ * ------------------------------------------------------------
+ * 全项目唯一允许读写 token 的地方：组件、路由守卫、request 拦截器
+ * 一律调本文件的方法，禁止直接碰 Cookie / localStorage。
+ *   - getToken()/setToken()/getRefreshToken()/logout()
+ *   - isLoggedIn()：Cookie 有 token 或 refresh_token 即视为已登录。
+ * 接后端：登录成功后调 setToken() 再 dispatch('fetchUser')；
+ *        401 拦截器调 logout() 后跳登录页。
+ * ============================================================
+ */
 import store from "@/store";
 
 const TOKEN_KEY = "app_token";

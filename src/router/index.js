@@ -1,6 +1,14 @@
 /**
- * 路由配置 + 全局守卫（Vue Router 4 写法）
- * Vue 3 用 createRouter() + createWebHistory() 替代 Vue 2 的 new VueRouter()。
+ * ============================================================
+ * router/index.js —— 路由配置 + 全局守卫（Vue Router 4）
+ * ------------------------------------------------------------
+ * 被 main.js 的 app.use(router) 注册，是整个应用的路由入口。
+ * 职责：
+ *   1. 路由表（页面组件懒加载 import()，404 通配兜底）。
+ *   2. beforeEach：按 meta 写页面 title/description（SEO）；
+ *      requireAuth 路由未登录跳 Login 并带回跳地址。
+ * history 模式部署必须配 Nginx try_files，否则刷新 404。
+ * ============================================================
  */
 import { createRouter, createWebHistory } from "vue-router";
 import auth from "@/utils/auth";

@@ -1,6 +1,12 @@
-// ===== 全局样式入口 =====
-// 依赖 vue.config.js 的 additionalData 自动注入 variables + mixins，
-// 这里只需引入 reset 和主题变量即可，组件里可直接用 $var / @include。
+// ============================================================
+// main.scss —— 全局样式主入口（最终编译成 main.css）
+// ------------------------------------------------------------
+// 不写具体样式，只负责按顺序 @use 组装各 partial：
+//   variables → mixins → reset → theme（变量先加载，后面才能引用）。
+// 依赖 vue.config.js additionalData 自动注入 variables + mixins，
+// 这里只需 @use reset，组件里可直接用 $var / @include。
+// 作用：改色板只动 _variables，改工具只动 _mixins，切主题只动 theme。
+// ============================================================
 @use "./reset.scss";
 
 // 页面底色用主题变量（跟随系统深浅色，见 theme.scss）

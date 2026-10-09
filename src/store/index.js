@@ -1,3 +1,14 @@
+/**
+ * ============================================================
+ * store/index.js —— Vuex 4 全局状态（登录态 + 通用持久化）
+ * ------------------------------------------------------------
+ * 全局唯一 store，被 main.js 的 app.use(store) 注册。
+ * 约定：
+ *   - 需要跨页共享/刷新不丢的状态放这里，用 createPersist(key) 持久化。
+ *   - key 用语义化命名（app_user / app_prefs），不用拼音缩写。
+ *   - fetchUser / logout 留 TODO-AUTH，接后端后换成真实 axios 调用。
+ * ============================================================
+ */
 import { createStore } from "vuex";
 import { createPersist } from "@/utils/persist";
 

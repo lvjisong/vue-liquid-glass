@@ -1,3 +1,16 @@
+/**
+ * ============================================================
+ * utils/request.js —— 统一 axios 实例（全项目请求唯一出口）
+ * ------------------------------------------------------------
+ * 职责：
+ *   1. 请求拦截器：自动注入 Bearer token；FormData 上传时放开 Content-Type。
+ *   2. 响应拦截器：解包 {code,data,msg} 业务结构；业务错误弹中文提示。
+ *   3. 401 自动刷新 token（单飞 + 排队重试，并发只刷一次）。
+ *   4. GET 失败自动重试最多 2 次（指数退避 1s/2s），POST 默认不重试。
+ * 用法：import request from '@/utils/request'; request.get/post(...)。
+ * 接后端需改：REFRESH_URL、token 结构、redirectToLogin（可改 router.push）。
+ * ============================================================
+ */
 import axios from "axios";
 import { ElMessage as Message } from "element-plus";
 import auth from "@/utils/auth";

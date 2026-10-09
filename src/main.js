@@ -1,3 +1,12 @@
+/**
+ * ============================================================
+ * main.js —— Vue 应用入口（唯一被 webpack 打包启动的文件）
+ * ------------------------------------------------------------
+ * 职责顺序：创建 app → 注册 router/store/ElementPlus →
+ *           注入全局样式与主题 → 挂全局错误处理 → mount('#app')。
+ * 接后端后：在 errorHandler 里接监控（Sentry），见 TODO-PRODUCTION。
+ * ============================================================
+ */
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "@/router";
