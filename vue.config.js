@@ -40,7 +40,7 @@ module.exports = defineConfig({
     extract: isProd,
     loaderOptions: {
       scss: {
-        // 全局自动注入变量和 mixins，组件里直接用 $apple-blue / @include glass(...)
+        // 全局自动注入变量和 mixins，组件里直接用 $变量 / @include mixin(...)
         // 新增文件后记得在这里加一行 @use
         additionalData: `@use "@/styles/variables.scss" as *;\n@use "@/styles/mixins.scss" as *;\n`,
       },
