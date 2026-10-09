@@ -1,3 +1,12 @@
+/**
+ * ============================================================
+ * .eslintrc.js —— ESLint 配置
+ * ------------------------------------------------------------
+ * 必须用 vue/vue3-essential（Vue3 规则集）！vue/essential 是 Vue2 的，
+ * 用它会在 Vue3 项目漏检 Vue3 专属问题（如 beforeDestroy 弃用）。
+ * 三方统一（vue-apple-home / vue3-element-plus-app / agent 技能模板）。
+ * ============================================================
+ */
 module.exports = {
   root: true,
   env: {
