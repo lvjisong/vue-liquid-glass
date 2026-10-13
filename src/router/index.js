@@ -15,20 +15,27 @@ import auth from "@/utils/auth";
 
 const routes = [
   {
+    // 默认进入路由：直接重定向到 Liquid Glass 演示页
     path: "/",
-    name: "Home",
-    component: () => import("@/views/Home.vue"), // 懒加载：进入该页才下载对应 JS
-    meta: {
-      title: "<-- 按项目替换：首页标题 -->",
-      description: "<-- 按项目替换：首页描述 -->",
-      requireAuth: false, // true 则该页需登录
-    },
+    redirect: "/liquid-glass",
+  },
+  {
+    path: "/liquid-glass",
+    name: "LiquidGlass",
+    component: () => import("@/views/LiquidGlassDemo.vue"),
+    meta: { title: "Liquid Glass Demo" },
   },
   {
     path: "/login",
     name: "Login",
     component: () => import("@/views/Login.vue"),
     meta: { title: "登录" },
+  },
+  {
+    path: "/liquid-glass",
+    name: "LiquidGlass",
+    component: () => import("@/views/LiquidGlassDemo.vue"),
+    meta: { title: "Liquid Glass Demo" },
   },
   // ... 更多路由
   // 404 兜底（Vue Router 4 通配符写法）
