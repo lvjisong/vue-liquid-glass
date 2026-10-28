@@ -6,8 +6,15 @@
 # <-- 按项目替换：node 版本与 nginx 镜像 -->
 FROM node:22-alpine AS build
 WORKDIR /app
+
+# 构建期不需要 git hooks，跳过 husky 安装（镜像里没有 .git）
+ENV HUSKY=0
+ENV CI=true
+
+# 先只拷 package.json + lock 文件做依赖层缓存
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --no-audit --no-fund
+
 COPY . .
 RUN npm run build
 

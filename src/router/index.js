@@ -43,7 +43,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL), // 需 Nginx try_files 配合
+  // Vite 中 BASE_URL 对应 import.meta.env.BASE_URL，部署子路径时自动跟随 vite.config.js 的 base
+  history: createWebHistory(import.meta.env.BASE_URL), // 需 Nginx try_files 配合
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition; // 前进后退保留滚动位置

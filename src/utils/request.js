@@ -52,7 +52,8 @@ const isBizOk = (code) => code === 0 || code === 200;
 const getBizMsg = (res) => (res && (res.msg || res.message)) || "业务处理失败";
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API || "",
+  // Vite 用 import.meta.env 承载环境变量（VUE_APP_ 前缀已在 vite.config.js 配置）
+  baseURL: import.meta.env.VUE_APP_BASE_API || "",
   timeout: 120000,
 });
 
